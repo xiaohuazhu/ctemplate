@@ -204,7 +204,7 @@ class @ac_windows_dllexport@ ValidateUrl : public TemplateModifier {
                        const char* unsafe_url_replacement)
       : chained_modifier_(chained_modifier),
         unsafe_url_replacement_(unsafe_url_replacement),
-        unsafe_url_replacement_length_(strlen(unsafe_url_replacement)) { }
+        unsafe_url_replacement_length_((int) strlen(unsafe_url_replacement)) { }
   MODIFY_SIGNATURE_;
   static const char* const kUnsafeUrlReplacement;
   static const char* const kUnsafeImgSrcUrlReplacement;
