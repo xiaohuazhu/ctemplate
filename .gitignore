@@ -1,0 +1,11 @@
+*.sdf
+*.suo
+*.opensdf
+Debug
+Release
+x64/Debug
+x64/Release
+vsprojects/libctemplate/Debug
+vsprojects/libctemplate/Release
+vsprojects/libctemplate/x64/Debug
+vsprojects/libctemplate/x64/Release
