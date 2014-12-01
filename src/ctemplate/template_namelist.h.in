@@ -40,7 +40,7 @@
 #define TEMPLATE_TEMPLATE_NAMELIST_H_
 
 #include <time.h>    // for time_t
-#include @ac_cv_cxx_hash_set@
+#include <set>
 #include <string>
 #include <vector>
 #include <ctemplate/template_enums.h>    // for Strip
@@ -82,7 +82,7 @@ class @ac_windows_dllexport@ TemplateNamelist {
   // thing you should do with them is call size() and/or iterate
   // between begin() and end(), and the only operations we promise
   // the iterators will support are operator* and operator++.
-  typedef @ac_cv_cxx_hash_set_class@<std::string, StringHash> NameListType;
+  typedef std::set<std::string, StringHash> NameListType;
   typedef std::vector<std::string> MissingListType;
   typedef std::vector<std::string> SyntaxListType;
 

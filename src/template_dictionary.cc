@@ -39,7 +39,6 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <algorithm>            // for sort()
-#include HASH_MAP_H
 #include <map>
 #include <string>
 #include <utility>              // for pair<>

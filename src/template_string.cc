@@ -34,20 +34,14 @@
 #include <config.h>
 #include "base/mutex.h"   // This has to come first to get _XOPEN_SOURCE
 #include <ctemplate/template_string.h>
-#include HASH_SET_H
+#include <set>
 #include "base/arena.h"
 #include "base/thread_annotations.h"
 #include <assert.h>
 #include "base/macros.h"    // for uint32, uint64, UNALIGNED_LOAD32
 #include "base/util.h"
 
-#ifdef HAVE_UNORDERED_MAP
-using HASH_NAMESPACE::unordered_set;
-// This is totally cheap, but minimizes the need for #ifdef's below...
-#define hash_set unordered_set
-#else
-using HASH_NAMESPACE::hash_set;
-#endif
+using std::set;
 
 _START_GOOGLE_NAMESPACE_
 
@@ -152,7 +146,7 @@ struct TemplateStringHasher {
 namespace {
 Mutex mutex(base::LINKER_INITIALIZED);
 
-typedef hash_set<TemplateString, TemplateStringHasher> TemplateStringSet;
+typedef set<TemplateString, TemplateStringHasher> TemplateStringSet;
 
 TemplateStringSet* template_string_set
 GUARDED_BY(mutex) PT_GUARDED_BY(mutex) = NULL;

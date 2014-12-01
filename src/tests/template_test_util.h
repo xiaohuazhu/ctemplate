@@ -43,7 +43,7 @@
 #include <time.h>        // for time_t
 #include <string>        // for string
 #include <vector>        // for vector<>
-#include HASH_MAP_H      // UNUSED
+#include <map>           // UNUSED
 #include <ctemplate/template.h>        // for Template::num_deletes_
 #include <ctemplate/template_cache.h>  // for TemplateCache
 #include <ctemplate/template_dictionary.h>  // for TemplateDictionary

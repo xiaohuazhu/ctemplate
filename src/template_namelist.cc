@@ -37,7 +37,7 @@
 # include <unistd.h>
 #endif
 #include <algorithm>             // for binary_search
-#include HASH_SET_H              // that's NameListType
+#include <set>
 #include <string>
 #include <vector>                // that's MissingListType, SyntaxListType
 #include <ctemplate/template_namelist.h>

@@ -34,7 +34,7 @@
 #define TEMPLATE_TEMPLATE_STRING_H_
 
 #include <string.h>      // for memcmp() and size_t
-#include @ac_cv_cxx_hash_map@
+#include <map>
 #include <string>
 #include <vector>
 
@@ -137,7 +137,7 @@ struct @ac_windows_dllexport@ StaticTemplateString {
   } do_not_use_directly_;
 
   // This class is a good hash functor to pass in as the third
-  // argument to @ac_cv_cxx_hash_map_class@<>, when creating a map whose keys are
+  // argument to map<>, when creating a map whose keys are
   // StaticTemplateString.  NOTE: This class isn't that safe to use,
   // because it requires that StaticTemplateStringInitializer has done
   // its job.  Unfortunately, even when you use the STS_INIT macro

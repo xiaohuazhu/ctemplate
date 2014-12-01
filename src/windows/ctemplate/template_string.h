@@ -34,7 +34,7 @@
 #define TEMPLATE_TEMPLATE_STRING_H_
 
 #include <string.h>      // for memcmp() and size_t
-#include <hash_map>
+#include <map>
 #include <string>
 #include <vector>
 
@@ -142,7 +142,7 @@ struct CTEMPLATE_DLL_DECL StaticTemplateString {
   } do_not_use_directly_;
 
   // This class is a good hash_compare functor to pass in as the third
-  // argument to stdext::hash_map<>, when creating a map whose keys are
+  // argument to std::map<>, when creating a map whose keys are
   // StaticTemplateString.  NOTE: This class isn't that safe to use,
   // because it requires that StaticTemplateStringInitializer has done
   // its job.  Unfortunately, even when you use the STS_INIT macro
@@ -211,7 +211,7 @@ class CTEMPLATE_DLL_DECL TemplateString {
     return is_immutable_;
   }
 
-  // STL requires this to be public for hash_map, though I'd rather not.
+  // STL requires this to be public for map, though I'd rather not.
   inline bool operator==(const TemplateString& x) const {
     return GetGlobalId() == x.GetGlobalId();
   }

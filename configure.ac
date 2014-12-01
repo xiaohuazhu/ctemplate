@@ -113,13 +113,17 @@ AC_CXX_STL_HASH
 
 # If we found tr1/unordered_map, prefer unordered_map/unordered_set to
 # hash_map/hash_set.
-if test "$ac_cv_cxx_have_unordered_map" = yes; then
-   ac_cv_cxx_hash_map_class="$ac_cv_cxx_hash_namespace::unordered_map"
-   ac_cv_cxx_hash_set_class="$ac_cv_cxx_hash_namespace::unordered_set"
-else
-   ac_cv_cxx_hash_map_class="$ac_cv_cxx_hash_namespace::hash_map"
-   ac_cv_cxx_hash_set_class="$ac_cv_cxx_hash_namespace::hash_set"
-fi
+# if test "$ac_cv_cxx_have_unordered_map" = yes; then
+#    ac_cv_cxx_hash_map_class="$ac_cv_cxx_hash_namespace::unordered_map"
+#    ac_cv_cxx_hash_set_class="$ac_cv_cxx_hash_namespace::unordered_set"
+# else
+#    ac_cv_cxx_hash_map_class="$ac_cv_cxx_hash_namespace::hash_map"
+#    ac_cv_cxx_hash_set_class="$ac_cv_cxx_hash_namespace::hash_set"
+# fi
+#ac_cv_cxx_hash_map_class="$ac_cv_cxx_hash_namespace::hash_map"
+#ac_cv_cxx_hash_set_class="$ac_cv_cxx_hash_namespace::hash_set"
+ac_cv_cxx_hash_map_class="$ac_cv_cxx_hash_namespace::hash_map_xxx"
+ac_cv_cxx_hash_set_class="$ac_cv_cxx_hash_namespace::hash_set_xxx"
 
 AC_SUBST(ac_google_namespace)
 AC_SUBST(ac_google_start_namespace)

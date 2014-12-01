@@ -45,7 +45,7 @@
 #include <stdlib.h>   // for NULL
 #include <string.h>   // for strcmp
 #include <sys/types.h>
-#include @ac_cv_cxx_hash_map@
+#include <map>
 #include <ctemplate/template_string.h>   // for StringHash
 
 @ac_windows_dllexport_defines@
@@ -126,12 +126,12 @@ class @ac_windows_dllexport@ PerExpandData {
 
  private:
 #ifdef _MSC_VER
-  typedef @ac_cv_cxx_hash_map_class@<const char*, const void*, StringHash> DataMap;
+  typedef std::map<const char*, const void*, StringHash> DataMap;
 #else
   struct DataEq {
     bool operator()(const char* s1, const char* s2) const;
   };
-  typedef @ac_cv_cxx_hash_map_class@<const char*, const void*, StringHash, DataEq>
+  typedef std::map<const char*, const void*, StringHash>
     DataMap;
 #endif
 
