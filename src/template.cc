@@ -2093,6 +2093,16 @@ TemplateToken SectionTemplateNode::GetNextToken(Template *my_template) {
 //    often just delegates (deprecated) operations to.
 // ----------------------------------------------------------------------
 
+#if defined(NO_THREADS)
+const GoogleOnceType GOOGLE_ONCE_INIT = 0;
+#elif defined(_WIN32) || defined(__CYGWIN32__) || defined(__CYGWIN64__)
+const GoogleOnceType GOOGLE_ONCE_INIT = 0;
+#elif defined(HAVE_PTHREAD) && defined(HAVE_RWLOCK)
+const GoogleOnceType GOOGLE_ONCE_INIT = PTHREAD_ONCE_INIT;
+#elif defined(HAVE_PTHREAD)
+const GoogleOnceType GOOGLE_ONCE_INIT = PTHREAD_ONCE_INIT;
+#endif
+
 static TemplateCache* g_default_template_cache = NULL;
 GoogleOnceType g_default_cache_init_once = GOOGLE_ONCE_INIT;
 

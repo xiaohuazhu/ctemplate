@@ -240,7 +240,7 @@ void Mutex::ReaderLock()   { assert(++mutex_ > 0); }
 void Mutex::ReaderUnlock() { assert(mutex_-- > 0); }
 
 typedef int GoogleOnceType;
-const GoogleOnceType GOOGLE_ONCE_INIT = 0;
+extern const GoogleOnceType GOOGLE_ONCE_INIT;
 inline int GoogleOnceInit(GoogleOnceType* once_control,
                           void (*init_routine)(void)) {
   if ((*once_control)++ == 0)
@@ -275,7 +275,7 @@ typedef LONG GoogleOnceType;
 #else
 typedef volatile LONG GoogleOnceType;
 #endif
-const GoogleOnceType GOOGLE_ONCE_INIT = 0;
+extern const GoogleOnceType GOOGLE_ONCE_INIT;
 inline int GoogleOnceInit(GoogleOnceType* once_control,
                           void (*init_routine)(void)) {
   while (1) {
@@ -320,7 +320,7 @@ void Mutex::ReaderUnlock() { SAFE_PTHREAD(pthread_rwlock_unlock); }
 #undef SAFE_PTHREAD
 
 typedef pthread_once_t GoogleOnceType;
-const GoogleOnceType GOOGLE_ONCE_INIT = PTHREAD_ONCE_INIT;
+extern const GoogleOnceType GOOGLE_ONCE_INIT;
 inline int GoogleOnceInit(GoogleOnceType* once_control,
                           void (*init_routine)(void)) {
   return pthread_once(once_control, init_routine);
@@ -352,7 +352,7 @@ void Mutex::ReaderUnlock() { Unlock(); }
 #undef SAFE_PTHREAD
 
 typedef pthread_once_t GoogleOnceType;
-const GoogleOnceType GOOGLE_ONCE_INIT = PTHREAD_ONCE_INIT;
+extern const GoogleOnceType GOOGLE_ONCE_INIT;
 inline int GoogleOnceInit(GoogleOnceType* once_control,
                           void (*init_routine)(void)) {
   return pthread_once(once_control, init_routine);

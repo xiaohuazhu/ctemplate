@@ -171,7 +171,7 @@ time_t TemplateNamelist::GetLastmodTime() {
     struct stat statbuf;
     if (path.empty() || stat(path.c_str(), &statbuf) != 0)
       continue;  // ignore files we can't find
-    retval = max(retval, statbuf.st_mtime);
+    retval = max(retval, (time_t) statbuf.st_mtime);
   }
   return retval;
 }
