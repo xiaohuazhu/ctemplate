@@ -1,8 +1,8 @@
 #!/bin/sh
 
 build_version=1
-ANDROID_PLATFORM=android-21
-archs="armeabi armeabi-v7a x86 x86_64"
+ANDROID_PLATFORM=android-16
+archs="armeabi armeabi-v7a x86"
 package_name=ctemplate-android
 
 current_dir="`pwd`"
