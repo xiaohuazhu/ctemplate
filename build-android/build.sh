@@ -1,6 +1,6 @@
 #!/bin/sh
 
-build_version=1
+build_version=2
 ANDROID_PLATFORM=android-16
 archs="armeabi armeabi-v7a x86"
 package_name=ctemplate-android
