@@ -23,10 +23,6 @@ function build {
   rm -rf "$current_dir/src"
 }
 
-cd "$current_dir/.."
-./autogen.sh
-make prepare
-
 # Includes
 cd "$current_dir"
 tar xzf include.tar.gz
